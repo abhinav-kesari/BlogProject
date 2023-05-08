@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div class="header">
+      <h2>Daily Food Blog</h2>
+    </div>
+    <div >
+      <button class="postBlog" [routerLink]="['/postBlog']"> Post a Blog</button>
+    </div>
+
+    <div class="row">
+      <div class="leftcolumn">
+        <div
+          class="card"
+          *ngFor="
+            let blog of blogs[0]
+              | paginate : { itemsPerPage: 1, currentPage: currentPage };
+            let i = index
+          "
+        >
+          <h2>{{ blog.title | json }}</h2>
+          <h5>{{ blog.descrption | json }}</h5>
+          <div class="fakeimg">
+            <img
+              style="height: 333px; width: 100%"
+              [src]="blog.image_url"
+              alt="image loading..."
+            />
+          </div>
+          <p>Uploaded at : {{ blog.updatedAt | json }}</p>
+          <p>CreatedAt at : {{ blog.createdAt | json }}</p>
+          <p>
+            {{ blog.title | json }}
+          </p>
+          <pagination-controls
+            class="footer"
+            (pageChange)="currentPage = $event"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

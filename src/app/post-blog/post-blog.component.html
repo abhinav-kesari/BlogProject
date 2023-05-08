@@ -1,0 +1,56 @@
+<div class="container">
+    <legend>Post Blog</legend>
+    <div class="row">
+      <div class="col col-md-8" style=" max-height: 100vh">
+        <form [formGroup]="postBlog" (ngSubmit)="postform(postBlog)" >
+            <div class="mb-3">
+            <label for="Title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              formControlName="title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              formControlName="description"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input
+              type="text"
+              class="form-control"
+              id="author"
+              formControlName="author"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="active" class="form-label">Is Active</label>
+            <select name="active" id="active"  class="form-control" formControlName="active">
+                <option value="1">True</option> 
+                <option value="0">False</option>
+            </select>          
+          </div> 
+
+          <div class="mb-3">
+            <label for="image_url" class="form-label">Image URL</label>
+            <input
+              type="text"
+              class="form-control"
+              id="image_url"
+              formControlName="image_url"
+            />
+          </div>
+         
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
